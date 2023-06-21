@@ -7,9 +7,14 @@
  * @stack: stack
  * @line_number: line number
  */
+
 void push(stack_t **stack, unsigned int line_number)
 {
-char *value = strtok(NULL, " \n\t\r");
+char *value;
+int num;
+stack_t *new_node;
+
+value = strtok(NULL, " \n\t\r");
 
 if (value == NULL)
 {
@@ -17,8 +22,8 @@ fprintf(stderr, "L%u: usage: push integer\n", line_number);
 exit(EXIT_FAILURE);
 }
 
-int num = atoi(value);
-stack_t *new_node = malloc(sizeof(stack_t));
+num = atoi(value);
+new_node = malloc(sizeof(stack_t));
 
 if (new_node == NULL)
 {
