@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * swap - swap
+ * myswap - swap
  * @stack: stack
  * @line_number: line number
  */
-void swap(stack_t **stack, unsigned int line_number)
+void myswap(stack_t **stack, unsigned int line_number)
 {
 stack_t *tmp;
 

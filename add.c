@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * add - add
+ * myadd - add
  * @stack: stack
  * @line_number: line number
  */
-void add(stack_t **stack, unsigned int line_number)
+void myadd(stack_t **stack, unsigned int line_number)
 {
 if (*stack == NULL || (*stack)->next == NULL)
 {
@@ -15,5 +15,5 @@ exit(EXIT_FAILURE);
 }
 
 (*stack)->next->n += (*stack)->n;
-pop(stack, line_number);
+mypop(stack, line_number);
 }

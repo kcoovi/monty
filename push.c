@@ -3,12 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 /**
- * push - push
+ * mypush - push
  * @stack: stack
  * @line_number: line number
  */
 
-void push(stack_t **stack, unsigned int line_number)
+void mypush(stack_t **stack, unsigned int line_number)
 {
 char *value;
 int num;

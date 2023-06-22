@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * pop - pop
+ * mypop - pop
  * @stack: stack
  * @line_number: line number
  */
-void pop(stack_t **stack, unsigned int line_number)
+void mypop(stack_t **stack, unsigned int line_number)
 {
 if (*stack == NULL)
 {

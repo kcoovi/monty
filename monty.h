@@ -14,12 +14,15 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-
+void mypush(stack_t **stack, unsigned int line_number);
+void mypall(stack_t **stack, unsigned int line_number);
+void mypint(stack_t **stack, unsigned int line_number);
+void mypop(stack_t **stack, unsigned int line_number);
+void myswap(stack_t **stack, unsigned int line_number);
+void myadd(stack_t **stack, unsigned int line_number);
+void mynop(stack_t **stack, unsigned int line_number);
+void *custom_calloc(unsigned int num_elements, unsigned int element_size);
+void *custom_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void node(stack_t **stack, int n);
+void (*get_codes(char *opc))(stack_t **stack, unsigned int line_number);
 #endif
