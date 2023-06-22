@@ -14,6 +14,12 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *head;
+extern char *buffer;
+
+void free_memory(void);
+void initialize(FILE *fd);
+FILE *validate_input(int argc, char *argv[]);
 void mypush(stack_t **stack, unsigned int line_number);
 void mypall(stack_t **stack, unsigned int line_number);
 void mypint(stack_t **stack, unsigned int line_number);
