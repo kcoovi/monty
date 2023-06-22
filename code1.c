@@ -1,13 +1,11 @@
 #include "monty.h"
 
 /**
- * _push - pushes an element to the stack
- *
- * @doubly: head of the linked list
+ * mypush - push
+ * @doubly: head
  * @cline: line number
- * Return: no return
  */
-void _push(stack_t **doubly, unsigned int cline)
+void mypush(stack_t **doubly, unsigned int cline)
 {
 	int n, j;
 
@@ -39,13 +37,11 @@ void _push(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _pall - prints all values on the stack
- *
- * @doubly: head of the linked list
- * @cline: line numbers
- * Return: no return
+ * mypall - pall
+ * @doubly: head
+ * @cline: line
  */
-void _pall(stack_t **doubly, unsigned int cline)
+void mypall(stack_t **doubly, unsigned int cline)
 {
 	stack_t *aux;
 	(void)cline;
@@ -54,19 +50,17 @@ void _pall(stack_t **doubly, unsigned int cline)
 
 	while (aux)
 	{
-		printf("%d\n", aux->n);
-		aux = aux->next;
+	printf("%d\n", aux->n);
+	aux = aux->next;
 	}
 }
 
 /**
- * _pint - prints the value at the top of the stack
- *
- * @doubly: head of the linked list
- * @cline: line number
- * Return: no return
+ * mypint - pint
+ * @doubly: head
+ * @cline: line
  */
-void _pint(stack_t **doubly, unsigned int cline)
+void mypint(stack_t **doubly, unsigned int cline)
 {
 	(void)cline;
 
@@ -82,13 +76,11 @@ void _pint(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _pop - removes the top element of the stack
- *
- * @doubly: head of the linked list
- * @cline: line number
- * Return: no return
+ * mypop - pop
+ * @doubly: head
+ * @cline: line
  */
-void _pop(stack_t **doubly, unsigned int cline)
+void mypop(stack_t **doubly, unsigned int cline)
 {
 	stack_t *aux;
 
@@ -104,13 +96,11 @@ void _pop(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _swap - swaps the top two elements of the stack
- *
- * @doubly: head of the linked list
- * @cline: line number
- * Return: no return
+ * myswap - swap
+ * @doubly: head
+ * @cline: line
  */
-void _swap(stack_t **doubly, unsigned int cline)
+void myswap(stack_t **doubly, unsigned int cline)
 {
 	int m = 0;
 	stack_t *aux = NULL;

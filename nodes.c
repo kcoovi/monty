@@ -1,10 +1,10 @@
 #include "monty.h"
 
 /**
- *add_dnodeint_end - add a note at the end of the doubly link list
- *@head: first position of linked list
- *@n: data to store
- *Return: a doubly linked list
+ *add_dnodeint_end - add
+ *@head: head
+ *@n: data
+ *Return: dll
  */
 stack_t *add_dnodeint_end(stack_t **head, const int n)
 {
@@ -20,7 +20,6 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 		exit(EXIT_FAILURE);
 	}
 	temp->n = n;
-	/*Careful with the first time*/
 	if (*head == NULL)
 	{
 		temp->next = *head;
@@ -38,10 +37,10 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 }
 
 /**
- *add_dnodeint - add a note at the begining of the doubly link list
- *@head: first position of linked list
- *@n: data to store
- *Return: a doubly linked list
+ *add_dnodeint - add
+ *@head: head
+ *@n: data
+ *Return: doubly linked list
  */
 stack_t *add_dnodeint(stack_t **head, const int n)
 {
@@ -73,10 +72,8 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 }
 
 /**
- * free_dlistint - frees the doubly linked list
- *
- * @head: head of the list
- * Return: no return
+ * free_dlistint - free
+ * @head: head
  */
 void free_dlistint(stack_t *head)
 {

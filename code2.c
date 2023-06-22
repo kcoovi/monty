@@ -1,13 +1,13 @@
 #include "monty.h"
 
 /**
- * _queue - sets the format of the data to a queue (FIFO)
+ * myqueue - sets the format of the data to a queue (FIFO)
  *
  * @doubly: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _queue(stack_t **doubly, unsigned int cline)
+void myqueue(stack_t **doubly, unsigned int cline)
 {
 	(void)doubly;
 	(void)cline;
@@ -16,13 +16,13 @@ void _queue(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _stack - sets the format fo the data to a stack (LIFO)
+ * mystack - sets the format fo the data to a stack (LIFO)
  *
  * @doubly: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _stack(stack_t **doubly, unsigned int cline)
+void mystack(stack_t **doubly, unsigned int cline)
 {
 	(void)doubly;
 	(void)cline;
@@ -31,13 +31,12 @@ void _stack(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _add - adds the top two elements of the stack
+ * myadd - adds the top two elements of the stack
  *
  * @doubly: head of the linked list
  * @cline: line number;
- * Return: no return
  */
-void _add(stack_t **doubly, unsigned int cline)
+void myadd(stack_t **doubly, unsigned int cline)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -49,37 +48,37 @@ void _add(stack_t **doubly, unsigned int cline)
 
 	if (m < 2)
 	{
-		dprintf(2, "L%u: can't add, stack too short\n", cline);
-		free_vglo();
-		exit(EXIT_FAILURE);
+	dprintf(2, "L%u: can't add, stack too short\n", cline);
+	free_vglo();
+	exit(EXIT_FAILURE);
 	}
 
 	aux = (*doubly)->next;
 	aux->n += (*doubly)->n;
-	_pop(doubly, cline);
+	mypop(doubly, cline);
 }
 
 /**
- * _nop - doesn't do anythinhg
+ * mynop - doesn't do anythinhg
  *
  * @doubly: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _nop(stack_t **doubly, unsigned int cline)
+void mynop(stack_t **doubly, unsigned int cline)
 {
 	(void)doubly;
 	(void)cline;
 }
 
 /**
- * _sub - subtracts the top element to the second top element of the stack
+ * mysub - subtracts the top element to the second top element of the stack
  *
  * @doubly: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _sub(stack_t **doubly, unsigned int cline)
+void mysub(stack_t **doubly, unsigned int cline)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -98,5 +97,5 @@ void _sub(stack_t **doubly, unsigned int cline)
 
 	aux = (*doubly)->next;
 	aux->n -= (*doubly)->n;
-	_pop(doubly, cline);
+	mypop(doubly, cline);
 }

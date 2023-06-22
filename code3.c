@@ -1,13 +1,11 @@
 #include "monty.h"
-
 /**
- * _div - divides the second element by the top element of the stack
- *
+ * mydiv - divides
  * @doubly: head of the linked list
  * @cline: line number;
  * Return: no return
  */
-void _div(stack_t **doubly, unsigned int cline)
+void mydiv(stack_t **doubly, unsigned int cline)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -33,17 +31,15 @@ void _div(stack_t **doubly, unsigned int cline)
 
 	aux = (*doubly)->next;
 	aux->n /= (*doubly)->n;
-	_pop(doubly, cline);
+	mypop(doubly, cline);
 }
 
 /**
- * _mul - multiplies the top element to the second top element of the stack
- *
- * @doubly: head of the linked list
- * @cline: line number;
- * Return: no return
+ * mymul - multiplies
+ * @doubly: head
+ * @cline: line
  */
-void _mul(stack_t **doubly, unsigned int cline)
+void mymul(stack_t **doubly, unsigned int cline)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -62,18 +58,15 @@ void _mul(stack_t **doubly, unsigned int cline)
 
 	aux = (*doubly)->next;
 	aux->n *= (*doubly)->n;
-	_pop(doubly, cline);
+	mypop(doubly, cline);
 }
 
 /**
- * _mod - computes the rest of the division of the second element
- * by the top element of the stack
- *
- * @doubly: head of the linked list
- * @cline: line number;
- * Return: no return
+ * mymod - mod
+ * @doubly: head
+ * @cline: line
  */
-void _mod(stack_t **doubly, unsigned int cline)
+void mymod(stack_t **doubly, unsigned int cline)
 {
 	int m = 0;
 	stack_t *aux = NULL;
@@ -99,16 +92,14 @@ void _mod(stack_t **doubly, unsigned int cline)
 
 	aux = (*doubly)->next;
 	aux->n %= (*doubly)->n;
-	_pop(doubly, cline);
+	mypop(doubly, cline);
 }
 /**
- * _pchar - print the char value of the first element
- *
- * @doubly: head of the linked list
- * @cline: line number;
- * Return: no return
+ * mypchar - pchar
+ * @doubly: head
+ * @cline: line
  */
-void _pchar(stack_t **doubly, unsigned int cline)
+void mypchar(stack_t **doubly, unsigned int cline)
 {
 	if (doubly == NULL || *doubly == NULL)
 	{
@@ -126,13 +117,11 @@ void _pchar(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _pstr - prints the string of the stack
- *
- * @doubly: head of the linked list
- * @cline: line number;
- * Return: no return
+ * mypstr - pstr
+ * @doubly: head
+ * @cline: line
  */
-void _pstr(stack_t **doubly, unsigned int cline)
+void mypstr(stack_t **doubly, unsigned int cline)
 {
 	stack_t *aux;
 	(void)cline;
