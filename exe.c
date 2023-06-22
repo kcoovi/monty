@@ -1,29 +1,29 @@
 #include "monty.h"
-
 /**
- * get_codes - get opcodes
- * @opc: opcode
- * Return: pointer
+ * get_codes - Get codes
+ * @opc: opc
+ * Return: return
  */
 void (*get_codes(char *opc))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t instruct[] = {
-		{"push", mypush},
-		{"pall", mypall},
-		{"pint", mypint},
-		{"pop", mypop},
-		{"swap", myswap},
-		{"add", myadd},
-		{"nop", mynop},
-		{NULL, NULL}
+	{"push", push_func},
+	{"pall", pall_func},
+	{"pint", pint_func},
+	{"pop", pop_func},
+	{"swap", swap_func},
+	{"add", add_func},
+	{"nop", nop_func},
+	{NULL, NULL}
 	};
-	int i;
 
-	for (i = 0; instruct[i].opcode; i++)
-	{
-		if (_strcmp(instruct[i].opcode, opc) == 0)
-			break;
-	}
+int i;
 
-	return (instruct[i].f);
+for (i = 0; instruct[i].opcode; i++)
+{
+if (_strcmp(instruct[i].opcode, opc) == 0)
+break;
+}
+
+return (instruct[i].f);
 }
