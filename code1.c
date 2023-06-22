@@ -1,124 +1,133 @@
 #include "monty.h"
 
 /**
- * push_func - pushes an element to the stack
+ * _push - pushes an element to the stack
  *
- * @stack: pointer to the head of the linked list
- * @line_number: line number
+ * @doubly: head of the linked list
+ * @cline: line number
  * Return: no return
  */
-void push_func(stack_t **stack, unsigned int line_number)
+void _push(stack_t **doubly, unsigned int cline)
 {
-	int num;
+	int n, j;
 
-	if (!global_data.arg)
+	if (!vglo.arg)
 	{
-		dprintf(2, "L%u: ", line_number);
+		dprintf(2, "L%u: ", cline);
 		dprintf(2, "usage: push integer\n");
-		free_global_data();
+		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	num = atoi(global_data.arg);
+	for (j = 0; vglo.arg[j] != '\0'; j++)
+	{
+		if (!isdigit(vglo.arg[j]) && vglo.arg[j] != '-')
+		{
+			dprintf(2, "L%u: ", cline);
+			dprintf(2, "usage: push integer\n");
+			free_vglo();
+			exit(EXIT_FAILURE);
+		}
+	}
 
-	if (global_data.lifo == 1)
-		add_node_at_beginning(stack, data);
+	n = atoi(vglo.arg);
+
+	if (vglo.lifo == 1)
+		add_dnodeint(doubly, n);
 	else
-		add_node_at_end(stack, data);
+		add_dnodeint_end(doubly, n);
 }
 
 /**
- * pall_func - prints all values on the stack
+ * _pall - prints all values on the stack
  *
- * @stack: pointer to the head of the linked list
- * @line_number: line number
+ * @doubly: head of the linked list
+ * @cline: line numbers
  * Return: no return
  */
-void pall_func(stack_t **stack, unsigned int line_number)
+void _pall(stack_t **doubly, unsigned int cline)
 {
-	stack_t *current = *stack;
+	stack_t *aux;
+	(void)cline;
 
-	while (current)
+	aux = *doubly;
+
+	while (aux)
 	{
-		printf("%d\n", current->n);
-		current = current->next;
+		printf("%d\n", aux->n);
+		aux = aux->next;
 	}
-	(void)line_number;
 }
 
 /**
- * pint_func - prints the value at the top of the stack
+ * _pint - prints the value at the top of the stack
  *
- * @stack: pointer to the head of the linked list
- * @line_number: line number
+ * @doubly: head of the linked list
+ * @cline: line number
  * Return: no return
  */
-void pint_func(stack_t **stack, unsigned int line_number)
+void _pint(stack_t **doubly, unsigned int cline)
 {
-	if (*stack == NULL)
+	(void)cline;
+
+	if (*doubly == NULL)
 	{
-		dprintf(2, "L%u: ", line_number);
+		dprintf(2, "L%u: ", cline);
 		dprintf(2, "can't pint, stack empty\n");
-		free_global_data();
+		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", (*stack)->n);
+	printf("%d\n", (*doubly)->n);
 }
 
 /**
- * pop_func - removes the top element of the stack
- *
- * @stack: pointer to the head of the linked list
- * @line_number: line number
- * Return: no return
+ * _pop - pop
+ * @doubly: head o
+ * @cline: line number
  */
-void pop_func(stack_t **stack, unsigned int line_number)
+void _pop(stack_t **doubly, unsigned int cline)
 {
-	stack_t *temp;
+	stack_t *aux;
 
-	if (*stack == NULL)
+	if (doubly == NULL || *doubly == NULL)
 	{
-		dprintf(2, "L%u: can't pop an empty stack\n", line_number);
-		free_global_data();
+		dprintf(2, "L%u: can't pop an empty stack\n", cline);
+		free_vglo();
 		exit(EXIT_FAILURE);
 	}
-
-	temp = *stack;
-	*stack = (*stack)->next;
-
-	if (*stack != NULL)
-	(*stack)->prev = NULL;
-
-	free(temp);
+	aux = *doubly;
+	*doubly = (*doubly)->next;
+	free(aux);
 }
 
 /**
- * swap_func - swaps the top two elements of the stack
+ * _swap - swaps the top two elements of the stack
  *
- * @stack: pointer to the head of the linked list
- * @line_number: line number
- * Return: no return
+ * @doubly: head of the linked list
+ * @cline: line number
  */
-void swap_func(stack_t **stack, unsigned int line_number)
+void _swap(stack_t **doubly, unsigned int cline)
 {
-	stack_t *top;
+	int m = 0;
+	stack_t *aux = NULL;
 
-	if (*stack == NULL || (*stack)->next == NULL)
+	aux = *doubly;
+
+	for (; aux != NULL; aux = aux->next, m++)
+		;
+
+	if (m < 2)
 	{
-		dprintf(2, "L%u: can't swap, stack too short\n", line_number);
-		free_global_data();
+		dprintf(2, "L%u: can't swap, stack too short\n", cline);
+		free_vglo();
 		exit(EXIT_FAILURE);
 	}
 
-	top = (*stack)->next;
-	(*stack)->prev = top;
-	(*stack)->next = top->next;
-
-	if (top->next != NULL)
-	top->next->prev = *stack;
-
-	top->prev = NULL;
-	top->next = *stack;
-	*stack = top;
+	aux = *doubly;
+	*doubly = (*doubly)->next;
+	aux->next = (*doubly)->next;
+	aux->prev = *doubly;
+	(*doubly)->next = aux;
+	(*doubly)->prev = NULL;
 }
