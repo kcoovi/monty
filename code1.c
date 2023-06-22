@@ -82,9 +82,11 @@ void _pint(stack_t **doubly, unsigned int cline)
 }
 
 /**
- * _pop - pop
- * @doubly: head o
+ * _pop - removes the top element of the stack
+ *
+ * @doubly: head of the linked list
  * @cline: line number
+ * Return: no return
  */
 void _pop(stack_t **doubly, unsigned int cline)
 {
@@ -106,6 +108,7 @@ void _pop(stack_t **doubly, unsigned int cline)
  *
  * @doubly: head of the linked list
  * @cline: line number
+ * Return: no return
  */
 void _swap(stack_t **doubly, unsigned int cline)
 {
